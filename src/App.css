@@ -1,0 +1,295 @@
+@font-face {
+  font-family: 'Aribau Grotesk';
+  src: url('../src/media/Aribau-Grotesk/AribauGroteskTRIAL-Rg.otf') format('truetype');
+  /* You can add additional src entries for different font file types */
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body{
+  margin: 0px;
+  padding: 0px;
+} 
+
+h1, h2, h3 , h4, h5, h6, p , a, span {
+  font-family: 'Aribau Grotesk' !important;
+}
+/* p{
+  font-size: 13px !important;
+} */
+.pop{
+  font-family: 'Poppins', sans-serif !important;
+}
+.main-box {
+  position: relative;
+  background: url(./media/images/LoginMain-bg.jpg);
+  background-size: cover;
+}
+
+.main-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0.8; /* Adjust the opacity to your preference */
+}
+
+/* .side-panel{
+  background-color: transparent !important;
+} */
+
+.side-panel {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(5px); 
+  /* border-radius: 40%;  */
+  padding: 20px;
+  border-left: 2px dashed #6867674d; /* Adjust border width as needed */
+}
+
+ .side-panel input{
+  font-size: 14px;
+  padding: 7px;
+ }
+ .checkbox-remember{
+  margin-right: 0px  !important;
+ }
+.links-text{
+  color: #ffb900e0;
+}
+.left-side , .right-side{
+  background-color: black !important;
+}
+.left-side .MuiPaper-elevation0 {
+  background: #000000!important;
+  color: white;
+  /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
+  backdrop-filter: blur(5px); 
+  /* border-radius: 10px;  */
+  border-right: 1px solid #3d3d3d;
+}
+.left-side-toggler button{
+  color: white;
+  /* border-radius: 5px; */
+  padding: 0px;
+  margin: 0px;
+}
+.left-side-toggler button svg{ 
+font-size: 30px;
+}
+header{
+  background-color: black !important;
+}
+.left-side-toggler:hover button{
+  color: #ff5100e0;
+}
+.logo-img {
+  padding-left: 15px;
+  right: 40%;
+}
+.logo-img img{
+  margin-top: 13px;
+
+}
+.left-side .MuiListItemIcon-root{
+  color: white !important;
+}
+.left-side .MuiListItemIcon-root{
+  color: white !important;
+}
+.top-bar .MuiToolbar-root{
+  background: black;
+}
+.left-side-link {
+text-decoration: none;
+color: white;
+}
+.left-side-link .MuiListItemButton-root:hover{
+ color: #ffb900e0 !important;
+  /* color: black !important; */
+}
+.top-toolbar{
+  border-bottom: 1px solid #3d3d3d;
+  background: #000000!important;
+  color: white;
+  /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
+  backdrop-filter: blur(5px); 
+  /* border-radius: 10px;  */
+}
+.profile-img-icon{
+color: #ffb900e0;
+font-size: 150px !important;
+}
+.filter-side{
+  border-left: 1px solid #3d3d3d;
+  background: #000000!important;
+  color: white;
+  /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
+  backdrop-filter: blur(5px); 
+  /* border-radius: 10px; */
+  position: fixed;
+  right: 20px;
+  top: 0px;
+  height: 100vh; 
+}
+.logo-box{
+  top: 45%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.via-btn{
+  padding: 7px 15px;
+  background: rgb(185 182 182 / 20%) !important;
+  border-radius: 15px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  width: 300px !important;
+  margin: 0 auto;
+
+}
+.via-btn a{
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+}
+hr.style3 {
+  border-top: 1px dashed #8c8b8b;
+}
+.login-signUp-form .inputValue{
+  border-radius: 4px !important;
+}
+.login-signUp-form input::placeholder{
+  color: rgba(255, 255, 255, 0.514) !important;
+}
+.via-btn.box{
+  transition: .4s !important; 
+}
+.via-btn.box:hover a{
+  color: #ffb900e0 !important;
+  transition: .4s !important; 
+}
+.via-btn.box:hover p{
+  color: #ffb900e0 !important;
+  transition: .4s !important; 
+}
+/* .left-side .MuiDrawer-paperAnchorLeft{
+  width: 200px !important;
+} */
+.left-side span{
+  font-size: 14px ;
+}
+.left-side-link:hover .MuiListItemIcon-root{
+  color: #ffb900e0 !important;
+}
+.MuiList-root.css-h4y409-MuiList-root{
+  position: unset;
+  /* margin-top: 10px; */
+}
+.modal-btn{
+  min-width: 100%;
+  width: 100%;
+
+}
+.modal-btn button{
+  border: 1px solid #ffb900e0 ;
+  color: white;
+  min-width: 100%;
+  width: 100%;
+}
+.modal-btn div{
+  min-width: 100%;
+  width: 100%;
+}
+.sideItem-icon{
+  min-width: auto !important;
+  margin-right: 25px !important;
+  margin-left: 5px;
+}
+.top-toolbar{
+  min-height: 50px !important;
+}
+.top-bar h1{
+  font-size: 16px;
+}
+.AllLists{
+  border-bottom: 1px solid #6867674d;
+  margin-bottom: 15px;
+}
+.AllLists:hover{
+  border-bottom: 1px solid #ff5100e0;
+}
+.AllLists:hover .list-img .MuiAvatar-circular{
+  border: 2px solid #ff5100e0;
+}
+.custom-checkbox .MuiSvgIcon-root {
+  border: none; 
+  color: #ff5100e0; 
+}
+.modal-Box .MuiDialog-paper{
+  background-color: #000000;
+  border: 1px solid #ff5100e0;
+  color: white !important;
+  width: 40%;
+}
+.modal-label{
+  font-size: 16px;
+}
+.modal-opn-btn{
+  width: 100px !important;
+}
+.modal-Box .MuiDialog-paper textarea{
+  font-size: 14px;
+  width: 100% !important;
+}
+.task-input{
+  margin-bottom: 0px;
+  padding-bottom: 2px;
+  font-size: 14px !important;
+}
+.add-taskbtn{
+  margin-top: 0px; 
+  font-size: 35px !important;
+  margin-left: 5px;
+}
+.task-input textarea::placeholder{
+  color: #ffffffa6 !important;
+  font-size: 14px !important;
+}
+.addtask-btn{
+  width: 100px  !important;
+  margin: 0 auto 0 0 !important;
+}
+.profilemain-img img {
+  border: 1px solid #ff5100e0;
+  padding: 3px;
+  border-radius: 50%;
+}
+.invite-btn{
+  width: 70px  !important;
+  padding: 3px 5px;
+  background: rgb(185 182 182 / 20%) !important;
+  border-radius: 15px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+}
+.profile-text{
+  margin-top: 30px;
+}
+.log-btn{
+  background-color: #ff5100e0 !important;
+  border: 1px solid #ff5100e0;
+  color: white;
+  border-radius: 15px !important;
+}
+.log-btn:hover{
+  color: white !important;
+  background: rgb(185 182 182 / 20%) !important; 
+  border: 1px solid #ff5100e0;
+}
+.font-time-sg{
+  text-decoration: none; 
+}
