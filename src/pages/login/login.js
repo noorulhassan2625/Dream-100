@@ -72,7 +72,7 @@ export default function SignInSide() {
         <img width={'80px'} className='pe-3 mb-2' src={DLogo} alt={DLogo} />
         </div>
             <Typography className='text-white mt-4 mb-3' component="h1" variant="h5">
-              <p>Sign in to Dream-100</p>
+              <p className="h1">Sign in to Dream-100</p>
             </Typography>
             <Box className='w-100' component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <div>
@@ -105,7 +105,7 @@ export default function SignInSide() {
               </div>
 
               <div className='form-data text-center'>
-                  <div className='my-4 via-btn log-btn box'>
+                  <div className='my-4 via-btn   box'>
                     <Link className="text-decoration-none" to={'/dashboard'}>
                       <p className="mx-auto my-1  pop">
                         Sign in with email
