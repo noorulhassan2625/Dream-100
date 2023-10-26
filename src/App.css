@@ -13,9 +13,9 @@ body{
 h1, h2, h3 , h4, h5, h6, p , a, span {
   font-family: 'Aribau Grotesk' !important;
 }
-/* p{
+p{
   font-size: 13px !important;
-} */
+}
 .pop{
   font-family: 'Poppins', sans-serif !important;
 }
