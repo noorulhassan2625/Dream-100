@@ -211,7 +211,7 @@ export default function MainProfile() {
                     <div>
                     <h5 className='text-white profile-text ms-2  text-center'>Profile Name</h5>
                     <div className=' ms-2 invite-btn box'>
-                      <p className=" log-btn mb-0  pop">
+                      <p className=" mb-0  pop">
                         Invite
                       </p>
                     </div>
@@ -243,7 +243,7 @@ export default function MainProfile() {
                     <div className='form-data text-left'>
                   <div className='my-4 via-btn text-center addtask-btn box'>
                     {/* <Link className="text-decoration-none" to={'/dashboard'}> */}
-                      <p className=" my-1 log-btn pop">
+                      <p className=" my-1 pop">
                         Add Task
                       </p>
                     {/* </Link> */}
