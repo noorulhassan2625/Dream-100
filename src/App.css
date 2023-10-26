@@ -282,7 +282,7 @@ hr.style3 {
   background-color: #ff5100e0 !important;
   border: 1px solid #ff5100e0;
   color: white;
-  border-radius: 15px !important;
+  border-radius: 50px !important;
 }
 .log-btn:hover{
   color: white !important;
