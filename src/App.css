@@ -493,3 +493,6 @@ z-index: 99999;
     border-radius: 50% !important;
   } */
 }
+.MuiList-padding.css-1ontqvh{
+  position: static !important;
+}
