@@ -1,23 +1,41 @@
-@font-face {
+/* @font-face {
   font-family: 'Aribau Grotesk';
   src: url('../src/media/Aribau-Grotesk/AribauGroteskTRIAL-Rg.otf') format('truetype');
-  /* You can add additional src entries for different font file types */
-}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
-body{
+@font-face {
+  font-family: "SF Compact Display Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../src/media/SFCompackDisplay/sf-compact-display-medium-5864711817c30.woff")
+    format("truetype");
+}
+body {
   margin: 0px;
   padding: 0px;
-} 
-
-h1, h2, h3 , h4, h5, h6, p , a, span {
-  font-family: 'Aribau Grotesk' !important;
+  font-family: "SF Compact Display Medium";
 }
-p{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span {
+  font-family: "SF Compact Display Medium" !important;
+}
+p.h1 {
+  font-size: 25px !important;
+}
+p {
   font-size: 13px !important;
 }
-.pop{
-  font-family: 'Poppins', sans-serif !important;
+.pop {
+  font-family: "Poppins", sans-serif !important;
 }
 .main-box {
   position: relative;
@@ -42,103 +60,119 @@ p{
 
 .side-panel {
   background: rgba(0, 0, 0, 0.2) !important;
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   /* border-radius: 40%;  */
   padding: 20px;
   border-left: 2px dashed #6867674d; /* Adjust border width as needed */
 }
 
- .side-panel input{
+.side-panel input {
   font-size: 14px;
   padding: 7px;
- }
- .checkbox-remember{
-  margin-right: 0px  !important;
- }
-.links-text{
+}
+.checkbox-remember {
+  margin-right: 0px !important;
+}
+.links-text {
   color: #ffb900e0;
 }
-.left-side , .right-side{
+.left-side,
+.right-side {
   background-color: black !important;
 }
 .left-side .MuiPaper-elevation0 {
-  background: #000000!important;
+  background: #000000 !important;
   color: white;
   /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
+  /* border-radius: 10px;  */
   border-right: 1px solid #3d3d3d;
 }
-.left-side-toggler button{
+.left-side-toggler button {
   color: white;
   /* border-radius: 5px; */
   padding: 0px;
   margin: 0px;
 }
-.left-side-toggler button svg{ 
-font-size: 30px;
+.left-side-toggler button svg {
+  font-size: 30px;
 }
-header{
+header {
   background-color: black !important;
+  border-bottom: 1px solid #3d3d3d;
+  /* width: calc(100% - 200px) !important; */
 }
-.left-side-toggler:hover button{
-  color: #ff5100e0;
+.left-side-toggler button:hover,
+.title-text {
+  color: #ffb900e0 !important;
 }
 .logo-img {
   padding-left: 15px;
-  right: 40%;
 }
-.logo-img img{
-  margin-top: 13px;
-
+.logo-img img {
+  margin-top: 18px;
 }
-.left-side .MuiListItemIcon-root{
+.logo-img .esk-text {
+  padding-top: 25px;
+}
+.left-side .MuiListItemIcon-root {
   color: white !important;
 }
-.left-side .MuiListItemIcon-root{
+.left-side .MuiListItemIcon-root {
   color: white !important;
 }
-.top-bar .MuiToolbar-root{
+.top-bar .MuiToolbar-root {
   background: black;
 }
 .left-side-link {
-text-decoration: none;
-color: white;
+  text-decoration: none;
+  color: white;
 }
-.left-side-link .MuiListItemButton-root:hover{
- color: #ffb900e0 !important;
-  /* color: black !important; */
+.left-side-link .MuiListItemButton-root {
+  padding: 0px;
+  margin: 10px;
 }
-.top-toolbar{
+
+.left-side-link .MuiListItemButton-root:hover , .left-side-link .MuiListItemButton-root.Mui-selected {
+  color: #ffb900e0 !important;
+  background: rgb(185 182 182 / 20%) !important;
+  border-radius: 5px;
+}
+.left-side-link .MuiListItemButton-root.Mui-selected .MuiListItemIcon-root{
+  color: #ffb900e0 !important;
+}
+.top-toolbar {
   border-bottom: 1px solid #3d3d3d;
-  background: #000000!important;
+  background: #000000 !important;
   color: white;
   /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   /* border-radius: 10px;  */
+  padding-left: 20px !important;
 }
-.profile-img-icon{
-color: #ffb900e0;
-font-size: 150px !important;
+.profile-img-icon {
+  color: #ffb900e0;
+  font-size: 150px !important;
 }
-.filter-side{
+.filter-side {
   border-left: 1px solid #3d3d3d;
-  background: #000000!important;
+  background: #000000 !important;
   color: white;
   /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   /* border-radius: 10px; */
   position: fixed;
-  right: 20px;
+  right: -25px;
   top: 0px;
-  height: 100vh; 
+  height: 100vh;
 }
-.logo-box{
+.logo-box {
   top: 45%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
-.via-btn{
+.via-btn {
   padding: 7px 15px;
   background: rgb(185 182 182 / 20%) !important;
   border-radius: 15px;
@@ -147,9 +181,8 @@ font-size: 150px !important;
   color: white;
   width: 300px !important;
   margin: 0 auto;
-
 }
-.via-btn a{
+.via-btn a {
   font-size: 14px;
   text-decoration: none;
   color: white;
@@ -157,117 +190,132 @@ font-size: 150px !important;
 hr.style3 {
   border-top: 1px dashed #8c8b8b;
 }
-.login-signUp-form .inputValue{
+.login-signUp-form .inputValue {
   border-radius: 4px !important;
 }
-.login-signUp-form input::placeholder{
+.login-signUp-form input::placeholder {
   color: rgba(255, 255, 255, 0.514) !important;
 }
-.via-btn.box{
-  transition: .4s !important; 
+.via-btn.box {
+  transition: 0.4s !important;
 }
-.via-btn.box:hover a{
+.via-btn.box:hover a {
   color: #ffb900e0 !important;
-  transition: .4s !important; 
+  transition: 0.4s !important;
 }
-.via-btn.box:hover p{
+.via-btn.box:hover p {
   color: #ffb900e0 !important;
-  transition: .4s !important; 
+  transition: 0.4s !important;
 }
 /* .left-side .MuiDrawer-paperAnchorLeft{
   width: 200px !important;
 } */
-.left-side span{
-  font-size: 14px ;
+.left-side span {
+  font-size: 14px;
 }
-.left-side-link:hover .MuiListItemIcon-root{
+
+.left-side-link:hover .MuiListItemIcon-root {
   color: #ffb900e0 !important;
 }
-.MuiList-root.css-h4y409-MuiList-root{
+.MuiList-root.css-h4y409-MuiList-root {
   position: unset;
-  /* margin-top: 10px; */
+  margin-top: 0px;
+  padding-top: 0px;
 }
-.modal-btn{
+.modal-btn {
   min-width: 100%;
   width: 100%;
-
 }
-.modal-btn button{
-  border: 1px solid #ffb900e0 ;
+.modal-btn button {
+  color: white;
+  border: 1px solid #ffb900e0;
+  border-radius: 100px !important;
+  min-width: 100%;
+  width: 100%;
+  background: #ffb900e0 !important;
+}
+.modal-btn:hover button {
+  border: 1px solid #ffb900e0;
   color: white;
   min-width: 100%;
   width: 100%;
+  border-radius: 50px;
+  border: 1px solid #ffb900e0;
+  background: rgb(185 182 182 / 20%) !important;
 }
-.modal-btn div{
+.modal-btn div {
   min-width: 100%;
   width: 100%;
 }
-.sideItem-icon{
+.sideItem-icon {
   min-width: auto !important;
-  margin-right: 25px !important;
+  margin-right: 10px !important;
   margin-left: 5px;
 }
-.top-toolbar{
+.sideItem-icon svg {
+  font-size: 20px;
+}
+.top-toolbar {
   min-height: 50px !important;
 }
-.top-bar h1{
+.top-bar h1 {
   font-size: 16px;
 }
-.AllLists{
+.AllLists {
   border-bottom: 1px solid #6867674d;
   margin-bottom: 15px;
 }
-.AllLists:hover{
-  border-bottom: 1px solid #ff5100e0;
+.AllLists:hover {
+  border-bottom: 1px solid #ffb900e0;
 }
-.AllLists:hover .list-img .MuiAvatar-circular{
-  border: 2px solid #ff5100e0;
+.AllLists:hover .list-img .MuiAvatar-circular {
+  border: 2px solid #ffb900e0;
 }
 .custom-checkbox .MuiSvgIcon-root {
-  border: none; 
-  color: #ff5100e0; 
+  border: none;
+  color: #ffb900e0;
 }
-.modal-Box .MuiDialog-paper{
+.modal-Box .MuiDialog-paper {
   background-color: #000000;
-  border: 1px solid #ff5100e0;
+  border: 1px solid #ffb900e0;
   color: white !important;
   width: 40%;
 }
-.modal-label{
+.modal-label {
   font-size: 16px;
 }
-.modal-opn-btn{
+.modal-opn-btn {
   width: 100px !important;
 }
-.modal-Box .MuiDialog-paper textarea{
+.modal-Box .MuiDialog-paper textarea {
   font-size: 14px;
   width: 100% !important;
 }
-.task-input{
+.task-input {
   margin-bottom: 0px;
   padding-bottom: 2px;
   font-size: 14px !important;
 }
-.add-taskbtn{
-  margin-top: 0px; 
+.add-taskbtn {
+  margin-top: 0px;
   font-size: 35px !important;
   margin-left: 5px;
 }
-.task-input textarea::placeholder{
+.task-input textarea::placeholder {
   color: #ffffffa6 !important;
   font-size: 14px !important;
 }
-.addtask-btn{
-  width: 100px  !important;
+.addtask-btn {
+  width: 100px !important;
   margin: 0 auto 0 0 !important;
 }
 .profilemain-img img {
-  border: 1px solid #ff5100e0;
+  border: 1px solid #ffb900e0;
   padding: 3px;
   border-radius: 50%;
 }
-.invite-btn{
-  width: 70px  !important;
+.invite-btn {
+  width: 70px !important;
   padding: 3px 5px;
   background: rgb(185 182 182 / 20%) !important;
   border-radius: 15px;
@@ -275,23 +323,173 @@ hr.style3 {
   text-decoration: none;
   color: white;
 }
-.profile-text{
+.profile-text {
   margin-top: 30px;
 }
-.log-btn{
-  background-color: #ff5100e0 !important;
-  border: 1px solid #ff5100e0;
+.log-btn {
+  background-color: #ffb900e0 !important;
+  /* background: linear-gradient(#ffb900e0 , #ff5100e0) !important; */
+  border: 1px solid #ffb900e0;
   color: white;
   border-radius: 50px !important;
 }
-.log-btn:hover{
+.log-btn:hover {
   color: white !important;
-  background: rgb(185 182 182 / 20%) !important; 
-  border: 1px solid #ff5100e0;
+  background: rgb(185 182 182 / 20%) !important;
+  border: 1px solid #ffb900e0;
 }
-.font-time-sg{
-  text-decoration: none; 
+.font-time-sg {
+  text-decoration: none;
 }
-.css-1ontqvh{
-  position: unset !important;
+/* .left-side.css-aq1gdx-MuiDrawer-docked span {
+  display: none;
+} */
+header button svg {
+  font-size: 20px !important;
+}
+.MuiTabs-flexContainer button {
+  max-width: 100px !important;
+  margin-top: 20px;
+}
+.bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side nav  span{
+display: none;
+}
+.sugg-text{
+  font-size: 20px !important;
+  font-weight: lighter !important;
+}
+.side-box{
+  padding-top: 35px !important;
+}
+.tabs-content .css-19kzrtu{
+  padding: 5px;
+}
+.modal-btn.hide-span span{
+  display: none;
+}
+.modal-btn.hide-span button{
+width: 50px !important;
+display: none;
+}
+.home-type{
+  position: relative;
+  z-index: 999;
+}
+.home-type label{
+  font-size: 14px;
+}
+.animate-label{
+margin-top: -10px;
+}
+.home-select div{
+  font-size: 14px !important;
+  padding: 5px !important;
+}
+.upload-file{
+  padding: 100px;
+  text-align: center;
+}
+
+.left-side-link input{
+  background: rgb(185 182 182 / 20%) !important;
+  width: 180px;
+  border: 0px;
+border-radius: 50px;
+color: white;
+padding: 5px 10px;
+}
+
+.postslist-text p{
+  color: white;
+}
+.comments p{
+  color: white !important;
+}
+.basicSelect{
+  transform: translate(-10px, 15px);
+}
+.profile-tabs{
+border-bottom: 1px solid #3d3d3d !important;
+}
+.basicSelect .via-btn{
+  position: relative;
+z-index: 99999;
+}
+.social-data svg{
+  font-size: 30px;
+}
+.social-data span{
+  display: none;
+  transition: .3s;
+}
+.social-data:hover svg{
+  transition: .3s;
+  font-size: 30px;
+}
+.social-data:hover span{
+  transition: .3s;
+  font-size: 10px;
+  display: block;
+}
+.social-modal .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  border: 1px solid #ffb900e0;
+  border-radius: 10px;
+}
+
+.accountDetails label , .accountDetails input{
+  color: white !important;
+}
+.accountDetails input{
+  border: 1px solid #ffb900e0 !important;
+}
+
+@media only screen and (min-width: 600px) {
+  .css-m9mp0w-MuiToolbar-root {
+    min-height: 64px !important;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 700px) {
+  .filter-side {
+    display: none !important;
+  }
+  .left-side {
+    position: absolute;
+    height: 100%;
+  }
+  .via-btn {
+    width: 100% !important;
+  }
+  .side-panel .logo-img .d-img {
+    display: none !important;
+  }
+  .side-panel .logo-img {
+    margin-top: 85px;
+    padding: 0px;
+  }
+  .logo-box {
+    display: none !important;
+  }
+  .d-none.m-logo {
+    display: block !important;
+    width: 250px;
+  }
+  .bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side{
+    display: none !important;
+  }
+  .modal-Box .MuiDialog-paper{
+    width: 85%;
+  }
+  /* .modal-btn.hide-span{
+    min-width: auto;
+    width: 50px;
+    position: absolute;
+    bottom: -36rem;
+    border-radius: 50%;
+    right: 30px;
+  } */
+  /* .modal-btn.hide-span button{
+    display: block;
+    border-radius: 50% !important;
+  } */
 }

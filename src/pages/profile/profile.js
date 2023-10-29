@@ -12,12 +12,15 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
+import VideoCallOutlinedIcon from '@mui/icons-material/VideoCallOutlined';
 import Paper from '@mui/material/Paper';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems } from '../../compoents/listItems';
+import MainListItems, { mainListItems } from '../../compoents/listItems';
 import Chart from '../../compoents/chart';
 import DLogo from '../../media/images/D-Logo.png';
 import UserImg from '../../media/images/user-img.jpg';
@@ -28,6 +31,20 @@ import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import LinearProgress from '@mui/material/LinearProgress';
+import PostsList from '../../compoents/postsList';
+import PostImageList from '../../compoents/postImgaes';
+import CommentsList from '../../compoents/postsComments';
+import InterestsList from '../../compoents/interestsPost';
+import BasicSelect from '../../compoents/selectOption';
+import AlertDialog from '../../compoents/modal';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import SelectScripts from '../../compoents/selectScripts';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import EditSocialList from '../../compoents/socialmediaLinks';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -60,7 +77,7 @@ function Copyright(props) {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -115,9 +132,42 @@ export default function MainProfile() {
   };
 
   const [selectedTab, setSelectedTab] = React.useState(0);
+  const [nestedSelectedTab, setNestedSelectedTab] = React.useState(0);
+  const [taskProgress, setTaskProgress] = React.useState(50); // Initialize with the desired initial progress value
+  // Initial progress value (50% in this example)
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
+  };
+  const handleNestedTabChange = (event, newValue) => {
+    setNestedSelectedTab(newValue);
+  };
+
+  const [tasks, setTasks] = React.useState([]);
+  const [taskText, setTaskText] = React.useState('');
+
+  const handleTaskTextChange = (e) => {
+    setTaskText(e.target.value);
+  };
+
+  const handleAddTask = () => {
+    if (taskText.trim() !== '') {
+      setTasks([...tasks, taskText]);
+      setTaskText('');
+    }
+  };
+  const [notes, setNotes] = React.useState([]);
+  const [noteText, setNoteText] = React.useState(''); 
+
+  const handleNoteTextChange = (e) => {
+    setNoteText(e.target.value);
+  };
+
+  const handleAddNote = () => {
+    if (noteText.trim() !== '') {
+      setNotes([...notes, noteText]);
+      setNoteText('');
+    }
   };
 
   return (
@@ -151,21 +201,23 @@ export default function MainProfile() {
               color="inherit"
               noWrap
               sx={{ flexGrow: 1 }}
+              className={'title-text'}
             >
               Profile Name
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-                  <ShareOutlinedIcon className='mx-1'/>
-                <MoreHorizOutlinedIcon  className='mx-1'/>
-                <NotificationsNoneOutlinedIcon  className='mx-1'/>
+                <ShareOutlinedIcon className='mx-1' />
+                <MoreHorizOutlinedIcon className='mx-1' />
+                <NotificationsNoneOutlinedIcon className='mx-1' />
               </Badge>
             </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer className='left-side' variant="permanent" open={open}>
-          <div className='text-center mx-auto position-absolute logo-img'>
-            <img width={'40px'}  src={DLogo} alt={DLogo} />
+          <div className='text-center d-flex mx-auto position-absolute logo-img'>
+            <img width={'35px'} height={'35px'} src={DLogo} alt={DLogo} />
+            <h5 className='esk-text'>esk</h5>
           </div>
           <Toolbar
             sx={{
@@ -182,12 +234,12 @@ export default function MainProfile() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <MainListItems />
             <Divider sx={{ my: 1 }} />
           </List>
         </Drawer>
         <Box
-         className='right-side'
+          className='right-side'
           component="main"
           sx={{
             backgroundColor: (theme) =>
@@ -202,61 +254,207 @@ export default function MainProfile() {
           <Toolbar />
           <div className='profile-box mt-3 mx-3'>
             <div className='row'>
-              <div className='col-md-9'>
-                <div className='col-md-5'>
+              <div className='col-md-10'>
+                <div className='col-md-12'>
                   <div className='d-flex profile-img text-center'>
                     <div className='profilemain-img'>
-                    <img width={'120px'}  src={UserImg} alt={UserImg} />
+                      <img width={'120px'} src={UserImg} alt={UserImg} />
                     </div>
                     <div>
-                    <h5 className='text-white profile-text ms-2  text-center'>Profile Name</h5>
-                    <div className=' ms-2 invite-btn box'>
-                      <p className=" mb-0  pop">
-                        Invite
-                      </p>
+                      <h5 className='text-white profile-text ms-2  text-center'>Profile Name</h5>
+                      <div className=' ms-2   box'>
+                        <p className=" mb-0 modal-btn pop">
+                        <AlertDialog name="Invite" />
+                        </p>
+                      </div>
                     </div>
+                    <div className='user-info ms-auto me-3 mt-5 pt-5 float-end'>
+          
+                      <div>
+                  <span className='text-white text-end float-end justify-content-end'>
+                <LocalPhoneOutlinedIcon className='me-2'/>
+                  :
+                  +123 456 7890
+                  </span>
                   </div>
+                  <div>
+                  <span className='text-white mt-2 text-end float-end justify-content-end'>
+                <CottageOutlinedIcon className='me-2'/>
+                  :
+                  Floor 12, A8 Merkaz Florida
+                  </span>
                   </div>
+
                 </div>
+                  </div>
+                <div>
+                      <SelectScripts/>
+                      </div>
+    
+                </div>
+                 
                 <div className='tabs'>
+
+
+                
+
+
+                <BasicSelect />
+
+
                   <Tabs
                     value={selectedTab}
                     onChange={handleTabChange}
                     variant="fullWidth"
                     textColor="primary"
-                    indicatorColor="primary"
+                    indicatorColor="secondary"
+                    indicatorClassName="indicator-red"
+                    className=' profile-tabs pb-3'
                   >
-                    <Tab className="text-white w-25"  label="Tasks" />
-                    <Tab className="text-white"  label="About" />
-                    {/* <Tab className="text-white"  label="Tab 3" /> */}
+                    <Tab className="text-white w-25" label="Timeline" />
+                    <Tab className="text-white" label="Interests" />
+                    <Tab className="text-white" label="Objectives" />
                   </Tabs>
-                  <TabPanel className="text-white" value={selectedTab} index={0}>
-                    <p>Please Add Task Here:</p>
-                    <div className='d-flex'>
 
-                  <div className='via-btn task-input w-100'>
-              <textarea  placeholder='Enter Task...' className='pop py-1 form-control bg-transparent text-white border-0 h6' autocomplete='off'/>
-          </div>
-   
-              <ControlPointOutlinedIcon className='add-taskbtn'/>
+                  <TabPanel className="text-white tabs-content" value={selectedTab} index={0}>
+                    <div className='tabs'>
+                      <Tabs
+                        value={nestedSelectedTab}
+                        onChange={handleNestedTabChange}
+                        variant="fullWidth"
+                        textColor="primary"
+                        indicatorColor="secondary"
+                        indicatorClassName="indicator-red"
+                      >
+                        <Tab className="text-white w-25" label="All" />
+                        <Tab className="text-white" label="Posts" />
+                        <Tab className="text-white" label="Comments" />
+                      </Tabs>
+                      <TabPanel className="text-white tabs-content" value={nestedSelectedTab} index={0}>
+                     
+                      <PostsList/>
+                     
+                      </TabPanel>
+                      <TabPanel className="text-white" value={nestedSelectedTab} index={1}>
+                       <PostImageList/>
+                      </TabPanel>
+                      <TabPanel className="text-white" value={nestedSelectedTab} index={2}>
+                       <CommentsList/>
+                      </TabPanel>
                     </div>
-                    <div className='form-data text-left'>
-                  <div className='my-4 via-btn text-center addtask-btn box'>
-                    {/* <Link className="text-decoration-none" to={'/dashboard'}> */}
-                      <p className=" my-1 pop">
-                        Add Task
-                      </p>
-                    {/* </Link> */}
-
-                  </div>
-                </div>
                   </TabPanel>
                   <TabPanel className="text-white" value={selectedTab} index={1}>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                  <InterestsList/>
+                  </TabPanel>
+                  <TabPanel className="text-white tabs-content" value={selectedTab} index={2}>
+                    <p>Completion Rate:</p>
+                    <div className="progress-bar w-25">
+                      <Typography className='text-whtie' variant="caption">
+                        {taskProgress}% Completed
+                      </Typography>
+                      <LinearProgress className='py-1' variant="determinate" value={taskProgress} />
+                    </div>
+
+                    <p className='mt-4'>Please Add Task Here:</p>
+                    <div>
+                      <div className="via-btn task-input w-100">
+                        <input
+                          type="text"
+                          placeholder="Enter Task..."
+                          className="py-1 form-control bg-transparent text-white border-0 h6"
+                          autoComplete="off"
+                          value={taskText}
+                          onChange={handleTaskTextChange}
+                        />
+                      </div>
+                      <button className="add-taskbtn mt-3 py-2 px-2 log-btn" onClick={handleAddTask}>
+                       <p className='mb-0'>Add Task</p>
+                      </button>
+                    </div>
+                    <div className="form-data text-left mt-4">
+        <ol>
+          {tasks.map((task, index) => (
+            <li key={index} className="my-1  text-center addtask-btn box pop">
+              {task}
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div className="note-section mt-4">
+            <p className='mb-1'>Please Add Note Here:</p>
+            <div className="via-btn note-input w-100">
+              <textarea
+                placeholder="Enter Note..."
+                className="py-1 form-control bg-transparent text-white border-0 h6"
+                autoComplete="off"
+                value={noteText}
+                onChange={handleNoteTextChange}
+              />
+            </div>
+            <button className="add-notebtn mt-3 py-2 px-2 log-btn" onClick={handleAddNote}>
+              <p className='mb-0'>Add Note</p>
+            </button>
+            <div className="form-data text-left mt-4">
+              <ol>
+                {notes.map((note, index) => (
+                  <li key={index} className="my-1 text-center addtask-btn box pop">
+                    {note}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
                   </TabPanel>
                 </div>
               </div>
-              <div className='col-md-2 filter-side'></div>
+              <div className='col-md-2 pt-5 mt-5 filter-side'>
+                <div className='row pb-3 profile-tabs'>
+                <div className='social-data col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <EmailOutlinedIcon/>
+                     <span>Email</span>
+                  </div>
+                </div>
+                <div className='social-data col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <FacebookOutlinedIcon/>
+                     <span>Face
+                      book</span>
+                  </div>
+                </div>
+                <div className='social-data  col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <VideoCallOutlinedIcon/>
+                     <span>Video box</span>
+                  </div>
+                </div>
+                <div className='col-md-3'></div>
+                <div className='social-data mt-3 col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <ContactPageOutlinedIcon/>
+                     <span>Mail Swag</span>
+                  </div>
+                </div>
+                <div className='social-data mt-3 col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <PeopleAltOutlinedIcon/>
+                     <span>Friend
+                      </span>
+                  </div>
+                </div>
+                {/* <div className='social-data mt-3 col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <VideoCallOutlinedIcon/>
+                     <span>Video box</span>
+                  </div>
+                </div> */}
+                </div>
+                <div className='me-3 mt-3'>
+                  <p className='mb-0'>Social Links</p>
+                <EditSocialList/>
+                </div>
+              </div>
             </div>
           </div>
         </Box>

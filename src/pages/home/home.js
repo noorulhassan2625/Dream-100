@@ -14,7 +14,7 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MainListItems, { mainListItems } from '../../compoents/listItems';
+import  mainListItems  from '../../compoents/listItems';
 import DLogo from '../../media/images/D-Logo.png';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -23,8 +23,16 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Checkbox from '@mui/material/Checkbox';
 import Avatar from '@mui/material/Avatar';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-
-
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+// import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import CustomList from '../../compoents/list';
+import InputFileUpload from '../../compoents/uploadFile';
+import MainListItems from '../../compoents/listItems';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -105,8 +113,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const defaultTheme = createTheme();
 
-export default function ProfilesList() {
-  const [selected, setSelected] = React.useState([]); // Track selected items
+export default function Home() {
+  const [selected, setSelected] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -130,6 +138,14 @@ export default function ProfilesList() {
 
     setSelected(newSelected);
   };
+
+  const [age, setAge] = React.useState(10); // State to track the selected option in the select menu
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  const items = [0, 1, 2, 3];
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -161,19 +177,19 @@ export default function ProfilesList() {
               color="inherit"
               noWrap
               sx={{ flexGrow: 1 }}
-              className={'title-text'}
-            >
-              Profiles List
+              className='title-text'
+              >
+             Home
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-              <NotificationsOutlinedIcon />
+                <NotificationsOutlinedIcon />
               </Badge>
             </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer className='left-side' variant="permanent" open={open}>
-        <div className='text-center d-flex mx-auto position-absolute logo-img'>
+        <div className='text-center d-flex mx-auto position-absolute logo-img logo-img-inner'>
             <img width={'35px'} height={'35px'} src={DLogo} alt={DLogo} />
             <h5 className='esk-text'>esk</h5>
           </div>
@@ -192,7 +208,7 @@ export default function ProfilesList() {
           </Toolbar>
           <Divider />
           <List component="nav">
-          <MainListItems/>
+            <MainListItems/>
             <Divider sx={{ my: 1 }} />
           </List>
         </Drawer>
@@ -210,43 +226,46 @@ export default function ProfilesList() {
           }}
         >
           <Toolbar />
+         
           <div className='profile-lists mx-3'>
             <div className='row'>
+                
               <div className='col-md-10'>
-                <List dense sx={{ width: '100%', maxWidth: '100%', bgcolor: 'transparent' }}>
-                  <p className='text-white'>New Updates</p>
-                  {[0, 1, 2, 3].map((value) => {
-                    const labelId = `checkbox-list-secondary-label-${value}`;
-                    return (
-                      <ListItem
-                        key={value}
-                        secondaryAction={
-                          <Checkbox
-                            edge="end"
-                            onChange={handleToggle(value)}
-                            checked={selected.indexOf(value) !== -1} // Check if the item is selected
-                            classes={{
-                              root: 'custom-checkbox', // Apply custom class to the root element
-                              icon: 'custom-icon', // Apply custom class to the icon element
-                            }}
-                          />
-                        }
-                        className='text-white AllLists'
-                        disablePadding
-                      >
-                        <ListItemButton>
-                          <ListItemAvatar className='list-img'>
-                            <Avatar
-                              alt={`Avatar n°${value + 1}`}
-                              src={`/static/images/avatar/${value + 1}.jpg`}
-                            />
-                            <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-                          </ListItemAvatar>
-                        </ListItemButton>
-                      </ListItem>
-                    );
-                  })}
-                </List>
+                <div className='float-start'>
+              <p className='text-white mt-4 mb-0'>News Feeds</p>
+                </div>
+              <div className='home-type float-end mt-3 pt-4'>
+              <Box sx={{ minWidth: 120 }}>
+      <FormControl className='via-btn' fullWidth>
+        <InputLabel id="demo-simple-select-label" className='text-white label animate-label'>Select Menu</InputLabel>
+        <Select
+          labelId="demo-simple-select-l abel"
+          id="demo-simple-select"
+          value={age}
+         
+          onChange={handleChange}
+          className='text-white home-select px-2'
+        >
+          <MenuItem value={10}>People List</MenuItem>
+          <MenuItem value={20}>Import From CSV</MenuItem>
+          {/* <MenuItem value={30}>Thirty</MenuItem> */}
+        </Select>
+      </FormControl>
+    </Box>
+
+              </div>
+              {age === 10 && (
+  <div className='people-list'>
+    <CustomList items={items} selected={selected} handleToggle={handleToggle} />
+  </div>
+)} :{age === 20 &&(
+  <div className='upload-file'>
+<InputFileUpload/>
+  </div>
+
+)}
+
+
               </div>
               <div className='col-md-2 filter-side'></div>
             </div>

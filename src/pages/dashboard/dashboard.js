@@ -12,14 +12,59 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
+import VideoCallOutlinedIcon from '@mui/icons-material/VideoCallOutlined';
 import Paper from '@mui/material/Paper';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems } from '../../compoents/listItems';
+import MainListItems, { mainListItems } from '../../compoents/listItems';
 import Chart from '../../compoents/chart';
 import DLogo from '../../media/images/D-Logo.png';
+import UserImg from '../../media/images/user-img.jpg';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import LinearProgress from '@mui/material/LinearProgress';
+import PostsList from '../../compoents/postsList';
+import PostImageList from '../../compoents/postImgaes';
+import CommentsList from '../../compoents/postsComments';
+import InterestsList from '../../compoents/interestsPost';
+import BasicSelect from '../../compoents/selectOption';
+import AlertDialog from '../../compoents/modal';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import SelectScripts from '../../compoents/selectScripts';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import EditSocialList from '../../compoents/socialmediaLinks';
+import PaymentDetails from '../../compoents/payment';
+import InputAdornments from '../../compoents/accountdetails';
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`tabpanel-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
 
 function Copyright(props) {
   return (
@@ -34,7 +79,7 @@ function Copyright(props) {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -80,26 +125,66 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Dashboard() {
+export default function MainProfile() {
   const [open, setOpen] = React.useState(true);
-
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const [selectedTab, setSelectedTab] = React.useState(0);
+  const [nestedSelectedTab, setNestedSelectedTab] = React.useState(0);
+  const [taskProgress, setTaskProgress] = React.useState(50); // Initialize with the desired initial progress value
+  // Initial progress value (50% in this example)
+
+  const handleTabChange = (event, newValue) => {
+    setSelectedTab(newValue);
+  };
+  const handleNestedTabChange = (event, newValue) => {
+    setNestedSelectedTab(newValue);
+  };
+
+  const [tasks, setTasks] = React.useState([]);
+  const [taskText, setTaskText] = React.useState('');
+
+  const handleTaskTextChange = (e) => {
+    setTaskText(e.target.value);
+  };
+
+  const handleAddTask = () => {
+    if (taskText.trim() !== '') {
+      setTasks([...tasks, taskText]);
+      setTaskText('');
+    }
+  };
+  const [notes, setNotes] = React.useState([]);
+  const [noteText, setNoteText] = React.useState(''); 
+
+  const handleNoteTextChange = (e) => {
+    setNoteText(e.target.value);
+  };
+
+  const handleAddNote = () => {
+    if (noteText.trim() !== '') {
+      setNotes([...notes, noteText]);
+      setNoteText('');
+    }
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }} className="bg-dark">
         <CssBaseline />
+
         <AppBar position="absolute" open={open} className='top-bar'>
           <Toolbar
             sx={{
-              pr: '24px', // keep right padding when drawer closed
+              pr: '24px',
             }}
+            className="top-toolbar"
           >
+
             <IconButton
               edge="start"
               color="inherit"
@@ -118,19 +203,23 @@ export default function Dashboard() {
               color="inherit"
               noWrap
               sx={{ flexGrow: 1 }}
+              className={'title-text'}
             >
-              Dashboard
+              Profile Name
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
+                <ShareOutlinedIcon className='mx-1' />
+                <MoreHorizOutlinedIcon className='mx-1' />
+                <NotificationsNoneOutlinedIcon className='mx-1' />
               </Badge>
             </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer className='left-side' variant="permanent" open={open}>
-          <div className='text-center mx-auto position-absolute logo-img'>
-            <img width={'40px'} src={DLogo} alt={DLogo} />
+          <div className='text-center d-flex mx-auto position-absolute logo-img'>
+            <img width={'35px'} height={'35px'} src={DLogo} alt={DLogo} />
+            <h5 className='esk-text'>esk</h5>
           </div>
           <Toolbar
             sx={{
@@ -147,9 +236,8 @@ export default function Dashboard() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <MainListItems />
             <Divider sx={{ my: 1 }} />
-            {/* {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -166,45 +254,107 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Chart />
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <div className='filter-side h-100'>
-                    <h2 className='text-white'>hello world</h2>
+          <div className='profile-box mt-3 mx-3'>
+            <div className='row'>
+              <div className='col-md-10'>
+                <div className='col-md-12 pb-3 profile-tabs'>
+                  <div className='d-flex profile-img text-center'>
+                    <div className='profilemain-img'>
+                      <img width={'120px'} src={UserImg} alt={UserImg} />
+                    </div>
+                    <div>
+                      <h5 className='text-white profile-text ms-2  text-center'>Profile Name</h5>
+                      <div className=' ms-2   box'>
+                        <p className=" mb-0 modal-btn pop">
+                        <AlertDialog name="Invite" />
+                        </p>
+                      </div>
+                    </div>
+                    <div className='user-info ms-auto me-3 mt-5 pt-5 float-end'>
+          
+                      <div>
+                  <span className='text-white text-end float-end justify-content-end'>
+                <LocalPhoneOutlinedIcon className='me-2'/>
+                  :
+                  +123 456 7890
+                  </span>
                   </div>
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              {/* <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
-                </Paper>
-              </Grid> */}
-            </Grid>
-            <Copyright sx={{ pt: 4 }} />
-          </Container>
+                  <div>
+                  <span className='text-white mt-2 text-end float-end justify-content-end'>
+                <CottageOutlinedIcon className='me-2'/>
+                  :
+                  Floor 12, A8 Merkaz Florida
+                  </span>
+                  </div>
+
+                </div>
+                  </div>
+                <div>
+                      <PaymentDetails/>
+                      </div>
+    
+                </div>
+                 
+                <div className='info-form accountDetails'>
+
+                <InputAdornments/>
+                
+
+
+
+
+   
+                </div>
+              </div>
+              <div className='col-md-2 pt-5 mt-5 filter-side'>
+                <div className='row pb-3 profile-tabs'>
+                <div className='social-data col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <EmailOutlinedIcon/>
+                     <span>Email</span>
+                  </div>
+                </div>
+                <div className='social-data col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <FacebookOutlinedIcon/>
+                     <span>Face
+                      book</span>
+                  </div>
+                </div>
+                <div className='social-data  col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <VideoCallOutlinedIcon/>
+                     <span>Video box</span>
+                  </div>
+                </div>
+                <div className='col-md-3'></div>
+                <div className='social-data mt-3 col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <ContactPageOutlinedIcon/>
+                     <span>Mail Swag</span>
+                  </div>
+                </div>
+                <div className='social-data mt-3 col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <PeopleAltOutlinedIcon/>
+                     <span>Friend
+                      </span>
+                  </div>
+                </div>
+                {/* <div className='social-data mt-3 col-md-3'>
+                  <div className='rounded-1 text-center log-btn'>
+                     <VideoCallOutlinedIcon/>
+                     <span>Video box</span>
+                  </div>
+                </div> */}
+                </div>
+                <div className='me-3 mt-3'>
+                  <p className='mb-0'>Social Links</p>
+                <EditSocialList/>
+                </div>
+              </div>
+            </div>
+          </div>
         </Box>
       </Box>
     </ThemeProvider>

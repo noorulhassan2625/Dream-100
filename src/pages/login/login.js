@@ -69,10 +69,11 @@ export default function SignInSide() {
             className={'side-box my-0'}
           >
                    <div className='logo-img'>
-        <img width={'80px'} className='pe-3 mb-2' src={DLogo} alt={DLogo} />
+        <img width={'80px'}  className='pe-3 mb-2 mt-0 d-img' src={DLogo} alt={DLogo} />
+        <img className=' d-none m-logo' src={logo} alt={"logo"} />
         </div>
-            <Typography className='text-white mt-4 mb-3' component="h1" variant="h5">
-              <p className="h1">Sign in to Dream-100</p>
+            <Typography className='text-white mt-2 mb-1' component="h1" variant="h5">
+              <p className='h1'>Sign in to Dream-100</p>
             </Typography>
             <Box className='w-100' component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <div>
@@ -105,8 +106,14 @@ export default function SignInSide() {
               </div>
 
               <div className='form-data text-center'>
-                  <div className='my-4 via-btn   box'>
-                    <Link className="text-decoration-none" to={'/dashboard'}>
+       <div className='my-3 via-btn inputValue'>
+              <input type='password' placeholder='Enter Your Password...' className='pop py-1 form-control bg-transparent text-white border-0' autocomplete='off'/>
+          </div>
+              </div>
+
+              <div className='form-data text-center'>
+                  <div className='my-4 via-btn log-btn box'>
+                    <Link className="text-decoration-none" to={'/home'}>
                       <p className="mx-auto my-1  pop">
                         Sign in with email
                       </p>
@@ -120,7 +127,7 @@ export default function SignInSide() {
             </div>
         <div className="text-center">
           <Link className="font-time-sg  text-white" to={'/SignUp'}>
-            <p>
+            <p className='sugg-text'>
             Want to make a new account!
             </p>
           </Link>
