@@ -585,3 +585,7 @@ font-size: 13px !important;
     width: 85%;
   }
 }
+.MuiInputBase-multiline.css-180nudn{
+  padding: 0px !important;
+  margin: 0px 10px !important;
+}
