@@ -496,3 +496,7 @@ z-index: 99999;
 .MuiList-padding.css-1ontqvh{
   position: static !important;
 }
+.side-panel {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
