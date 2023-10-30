@@ -13,8 +13,8 @@ export default function SelectScripts() {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-    <FormControl className='via-btn ps-2' fullWidth>
+    <Box className='script-selecting' sx={{ minWidth: 120 }}>
+    <FormControl className='selecting-option  float-start ps-2' fullWidth>
       <InputLabel id="demo-simple-select-label" className='text-white label animate-label'>Select Scripts</InputLabel>
       <Select
         labelId="demo-simple-select-l abel"

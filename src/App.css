@@ -4,17 +4,27 @@
 } */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
-@font-face {
+/* @font-face {
   font-family: "SF Compact Display Medium";
   font-style: normal;
   font-weight: normal;
   src: url("../src/media/SFCompackDisplay/sf-compact-display-medium-5864711817c30.woff")
     format("truetype");
-}
+} */
+
+
+@font-face {
+  font-family: 'SF Compact Display Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../src/media/SFCompackDisplay/sf-compact-display-medium-5864711817c30.woff") format('woff');
+  }
+  
+
 body {
   margin: 0px;
   padding: 0px;
-  font-family: "SF Compact Display Medium";
+  font-family: "Poppins", sans-serif !important;
 }
 
 h1,
@@ -26,13 +36,31 @@ h6,
 p,
 a,
 span {
-  font-family: "SF Compact Display Medium" !important;
+  font-family: "Poppins", sans-serif !important;
+  
 }
 p.h1 {
   font-size: 25px !important;
 }
-p {
+p, span , button, input , label , .sugg-text{
   font-size: 13px !important;
+  font-weight: lighter !important;
+}
+button span , button {
+ text-transform: capitalize !important;
+}
+.tabs button{
+  position: relative;
+}
+.top-title{
+  font-size: 16px !important;
+}
+.tabs  .css-11yukd5-MuiTabs-indicator{
+  width: 50px !important;
+  margin-left: 27px;
+}
+svg{
+  font-size: 25px;
 }
 .pop {
   font-family: "Poppins", sans-serif !important;
@@ -51,19 +79,25 @@ p {
   bottom: 0;
   left: 0;
   background: black;
-  opacity: 0.8; /* Adjust the opacity to your preference */
+  opacity: 0.8; 
 }
 
-/* .side-panel{
-  background-color: transparent !important;
-} */
-
+.MuiList-padding.css-1ontqvh{
+  position: static !important;
+}
+.side-panel {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+.side-panel {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
 .side-panel {
   background: rgba(0, 0, 0, 0.2) !important;
   backdrop-filter: blur(5px);
-  /* border-radius: 40%;  */
   padding: 20px;
-  border-left: 2px dashed #6867674d; /* Adjust border width as needed */
+  border-left: 2px dashed #6867674d; 
 }
 
 .side-panel input {
@@ -83,14 +117,11 @@ p {
 .left-side .MuiPaper-elevation0 {
   background: #000000 !important;
   color: white;
-  /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
   backdrop-filter: blur(5px);
-  /* border-radius: 10px;  */
   border-right: 1px solid #3d3d3d;
 }
 .left-side-toggler button {
   color: white;
-  /* border-radius: 5px; */
   padding: 0px;
   margin: 0px;
 }
@@ -100,7 +131,6 @@ p {
 header {
   background-color: black !important;
   border-bottom: 1px solid #3d3d3d;
-  /* width: calc(100% - 200px) !important; */
 }
 .left-side-toggler button:hover,
 .title-text {
@@ -145,9 +175,7 @@ header {
   border-bottom: 1px solid #3d3d3d;
   background: #000000 !important;
   color: white;
-  /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
   backdrop-filter: blur(5px);
-  /* border-radius: 10px;  */
   padding-left: 20px !important;
 }
 .profile-img-icon {
@@ -158,13 +186,14 @@ header {
   border-left: 1px solid #3d3d3d;
   background: #000000 !important;
   color: white;
-  /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0px 0px 0px rgba(255, 255, 255, 0.5), 0 0 0px rgba(255, 255, 255, 0.3), 0 0 0px rgba(255, 255, 255, 0.2) !important; */
   backdrop-filter: blur(5px);
-  /* border-radius: 10px; */
   position: fixed;
   right: -25px;
   top: 0px;
   height: 100vh;
+}
+.filter-side svg{
+font-size: 25px  !important;
 }
 .logo-box {
   top: 45%;
@@ -207,9 +236,7 @@ hr.style3 {
   color: #ffb900e0 !important;
   transition: 0.4s !important;
 }
-/* .left-side .MuiDrawer-paperAnchorLeft{
-  width: 200px !important;
-} */
+
 .left-side span {
   font-size: 14px;
 }
@@ -341,23 +368,39 @@ hr.style3 {
 .font-time-sg {
   text-decoration: none;
 }
-/* .left-side.css-aq1gdx-MuiDrawer-docked span {
-  display: none;
-} */
+
 header button svg {
-  font-size: 20px !important;
+  font-size: 25px !important;
+  margin-left: 5px;
+}
+.interestsLists{
+  border-bottom: 1px solid #3d3d3d;
+  margin-bottom: 5px;
+  padding: 5px 0px;
+}
+.script-selecting{
+  position: relative;
+  z-index: 999;
+}
+.MuiInputLabel-outlined.Mui-focused{
+font-size: 14px !important;
+margin-left: -15px !important;
 }
 .MuiTabs-flexContainer button {
   max-width: 100px !important;
-  margin-top: 20px;
 }
-.bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side nav  span{
-display: none;
+.bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side nav  span , .bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side .left-side-link.i {
+display: none !important;
 }
-.sugg-text{
-  font-size: 20px !important;
-  font-weight: lighter !important;
+.bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side .left-side-link svg{
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+.bg-dark .top-bar.css-o5srbh-MuiPaper-root-MuiAppBar-root + .left-side .left-side-link .modal-btn svg{
+  margin: auto !important;
+}
+
 .side-box{
   padding-top: 35px !important;
 }
@@ -390,11 +433,11 @@ margin-top: -10px;
   text-align: center;
 }
 
-.left-side-link input{
+.left-side-link.i input{
   background: rgb(185 182 182 / 20%) !important;
   width: 180px;
   border: 0px;
-border-radius: 50px;
+border-radius: 8px;
 color: white;
 padding: 5px 10px;
 }
@@ -418,8 +461,15 @@ z-index: 99999;
 .social-data svg{
   font-size: 30px;
 }
+.social-data .log-btn {
+  background: rgb(185 182 182 / 20%) !important;
+  border: 0px !important;
+}
+.social-data .log-btn:hover{
+color: #ffb900e0 !important;
+}
 .social-data span{
-  display: none;
+  /* display: none; */
   transition: .3s;
 }
 .social-data:hover svg{
@@ -429,7 +479,7 @@ z-index: 99999;
 .social-data:hover span{
   transition: .3s;
   font-size: 10px;
-  display: block;
+  /* display: block; */
 }
 .social-modal .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
   border: 1px solid #ffb900e0;
@@ -442,7 +492,61 @@ z-index: 99999;
 .accountDetails input{
   border: 1px solid #ffb900e0 !important;
 }
+.selecting-option{
+  padding: 7px 15px;
+  background: rgb(185 182 182 / 20%) !important;
+  border-radius: 8px;
+  font-size: 13px;
+  text-decoration: none;
+  color: white;
+  width: 150px !important;
+}
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  background-color: black !important;
+  border-radius: 8px;
+  font-size: 13px;
+  border: 1px solid #3d3d3d;
+  text-decoration: none;
+  color: white !important;
+}
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper li{
+  font-size: 12px !important;
+  border-top: 1px solid #3d3d3d;
+  border-bottom: 1px solid #3d3d3d;
+}
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper li:hover{
+  color: #ffb900e0;
+}
+.log-btn.m {
+  width: 80px;
+  padding: 0px 5px;
+}
+.log-btn.m button{
+border: 0px !important;
+color: white !important;
+padding: 0px !important;
+font-size: 13px !important;
+}
+.log-btn.m button svg{
+  font-size: 20px !important;
+}
 
+
+.profile-data input , .profile-data textarea{
+  border: 0px !important;
+  background: rgb(185 182 182 / 20%) !important;
+  padding: 7px 10px 14px 10px ;
+  margin: 5px 0px;
+  border-radius: 8px !important;
+
+}
+
+.profile-data .MuiInputLabel-shrink{
+  font-size: 20px !important; 
+  margin-top: -6px !important;
+  margin-left: 0px !important; 
+
+}
 @media only screen and (min-width: 600px) {
   .css-m9mp0w-MuiToolbar-root {
     min-height: 64px !important;
@@ -480,23 +584,4 @@ z-index: 99999;
   .modal-Box .MuiDialog-paper{
     width: 85%;
   }
-  /* .modal-btn.hide-span{
-    min-width: auto;
-    width: 50px;
-    position: absolute;
-    bottom: -36rem;
-    border-radius: 50%;
-    right: 30px;
-  } */
-  /* .modal-btn.hide-span button{
-    display: block;
-    border-radius: 50% !important;
-  } */
-}
-.MuiList-padding.css-1ontqvh{
-  position: static !important;
-}
-.side-panel {
-  height: 100vh !important;
-  overflow: hidden !important;
 }

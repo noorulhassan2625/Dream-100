@@ -139,7 +139,7 @@ export default function Home() {
     setSelected(newSelected);
   };
 
-  const [age, setAge] = React.useState(10); // State to track the selected option in the select menu
+  const [age, setAge] = React.useState(10);
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -232,11 +232,11 @@ export default function Home() {
                 
               <div className='col-md-10'>
                 <div className='float-start'>
-              <p className='text-white mt-4 mb-0'>News Feeds</p>
+              <p className='text-white top-title mt-4 mb-0'>News Feeds</p>
                 </div>
               <div className='home-type float-end mt-3 pt-4'>
               <Box sx={{ minWidth: 120 }}>
-      <FormControl className='via-btn' fullWidth>
+      <FormControl className='selecting-option' fullWidth>
         <InputLabel id="demo-simple-select-label" className='text-white label animate-label'>Select Menu</InputLabel>
         <Select
           labelId="demo-simple-select-l abel"

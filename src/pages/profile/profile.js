@@ -263,26 +263,35 @@ export default function MainProfile() {
                     <div>
                       <h5 className='text-white profile-text ms-2  text-center'>Profile Name</h5>
                       <div className=' ms-2   box'>
-                        <p className=" mb-0 modal-btn pop">
+                        <p className=" mb-0 log-btn m pop">
                         <AlertDialog name="Invite" />
                         </p>
                       </div>
                     </div>
-                    <div className='user-info ms-auto me-3 mt-5 pt-5 float-end'>
+                    
+                    <div className='user-info w-25 ms-auto me-3 mt-5 pt-5 float-end'>
           
                       <div>
-                  <span className='text-white text-end float-end justify-content-end'>
+                  <div className='text-white w-100 d-flex text-end float-end justify-content-end'>
+                <span className='me-auto float-start'>
                 <LocalPhoneOutlinedIcon className='me-2'/>
                   :
+                </span>
+                  <p className='mb-0 text-white'>
                   +123 456 7890
-                  </span>
+                  </p>
+                  </div>
                   </div>
                   <div>
-                  <span className='text-white mt-2 text-end float-end justify-content-end'>
+                  <div className='text-white mt-2 w-100 d-flex text-end float-end justify-content-end'>
+                    <span className='me-auto float-start'>
                 <CottageOutlinedIcon className='me-2'/>
                   :
+                    </span>
+                    <p className='mb-0'>
                   Floor 12, A8 Merkaz Florida
-                  </span>
+                    </p>
+                  </div>
                   </div>
 
                 </div>
@@ -290,16 +299,18 @@ export default function MainProfile() {
                 <div>
                       <SelectScripts/>
                       </div>
-    
+                  <div>
+                <BasicSelect />
+
+                  </div>
                 </div>
-                 
                 <div className='tabs'>
 
 
                 
 
 
-                <BasicSelect />
+                
 
 
                   <Tabs
@@ -410,35 +421,35 @@ export default function MainProfile() {
               </div>
               <div className='col-md-2 pt-5 mt-5 filter-side'>
                 <div className='row pb-3 profile-tabs'>
-                <div className='social-data col-md-3'>
-                  <div className='rounded-1 text-center log-btn'>
-                     <EmailOutlinedIcon/>
+                <div className='social-data mb-3 col-md-11'>
+                  <div className='rounded-1 px-2 log-btn py-1'>
+                     <EmailOutlinedIcon className='me-2'/>
                      <span>Email</span>
                   </div>
                 </div>
-                <div className='social-data col-md-3'>
-                  <div className='rounded-1 text-center log-btn'>
-                     <FacebookOutlinedIcon/>
+                <div className='social-data mb-3 col-md-11'>
+                  <div className='rounded-1 px-2 log-btn py-1'>
+                     <FacebookOutlinedIcon className='me-2'/>
                      <span>Face
                       book</span>
                   </div>
                 </div>
-                <div className='social-data  col-md-3'>
-                  <div className='rounded-1 text-center log-btn'>
-                     <VideoCallOutlinedIcon/>
+                <div className='social-data mb-3 col-md-11'>
+                  <div className='rounded-1 px-2 log-btn py-1'>
+                     <VideoCallOutlinedIcon className='me-2'/>
                      <span>Video box</span>
                   </div>
                 </div>
                 <div className='col-md-3'></div>
-                <div className='social-data mt-3 col-md-3'>
-                  <div className='rounded-1 text-center log-btn'>
-                     <ContactPageOutlinedIcon/>
+                <div className='social-data mb-3 col-md-11'>
+                  <div className='rounded-1 px-2 log-btn py-1'>
+                     <ContactPageOutlinedIcon className='me-2'/>
                      <span>Mail Swag</span>
                   </div>
                 </div>
-                <div className='social-data mt-3 col-md-3'>
-                  <div className='rounded-1 text-center log-btn'>
-                     <PeopleAltOutlinedIcon/>
+                <div className='social-data mb-3 col-md-11'>
+                  <div className='rounded-1 px-2 log-btn py-1'>
+                     <PeopleAltOutlinedIcon className='me-2'/>
                      <span>Friend
                       </span>
                   </div>

@@ -13,8 +13,8 @@ export default function BasicSelect() {
   };
 
   return (
-    <Box  className='basicSelect' sx={{ minWidth: 120 }}>
-    <FormControl className='via-btn float-end mt-5 ps-2' fullWidth>
+    <Box  className='basicSelect  text-end' sx={{ minWidth: 120 }}>
+    <FormControl className='selecting-option  ps-2' fullWidth>
       <InputLabel id="demo-simple-select-label" className='text-white label animate-label'>Select Menu</InputLabel>
       <Select
         labelId="demo-simple-select-l abel"

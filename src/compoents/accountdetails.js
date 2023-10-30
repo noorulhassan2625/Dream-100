@@ -12,7 +12,10 @@ export default function MyForm() {
   };
 
   return (
-    <Box  sx={{ display: 'flex', flexWrap: 'wrap',  padding: '20px', borderRadius: '5px' }}>
+    <Box className='profile-data mt-3'>
+      <div className='row'>
+
+   <div className='col-md-6 text-field-info'>
       <TextField
         label="First Name"
         id="first-name"
@@ -23,12 +26,14 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
       />
+      </div>
+      <div className='col-md-6 text-field-info'>
       <TextField
         label="Last Name"
         id="last-name"
@@ -39,12 +44,14 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
       />
+         </div>
+         <div className='col-md-4 text-field-info'>
       <TextField
         label="Email"
         id="email"
@@ -55,12 +62,14 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
       />
+      </div>
+      <div className='col-md-4 text-field-info'>
       <TextField
         label="Phone No."
         id="phone"
@@ -71,12 +80,14 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
       />
+      </div>
+      <div className='col-md-4 text-field-info'>
       <TextField
         label="Date of Birth"
         id="date-of-birth"
@@ -87,12 +98,14 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
       />
+      </div>
+      <div className='col-md-12 text-field-info2'>
       <TextField
         label="Address"
         id="address"
@@ -103,12 +116,13 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
       />
+      </div>
       <TextField
         label="Personal Bio"
         id="personal-bio"
@@ -121,12 +135,14 @@ export default function MyForm() {
           },
           sx: {
             '& fieldset': {
-              borderColor: 'white',
-            },
+             
+            }
           },
         }}
         sx={{ m: 1, width: '100%' }}
+        className='p-0'
       />
+   </div>
     </Box>
   );
 }
