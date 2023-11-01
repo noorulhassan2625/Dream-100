@@ -28,7 +28,7 @@
     // Define an array of navigation items with the isActive property
     const navigationItems = [
       { path: '/home', label: 'Home', icon: <SupervisorAccountOutlinedIcon />, name: 'home' },
-      { path: '/mainprofile', label: 'Main Profile', icon: <DashboardOutlinedIcon />, name: 'mainprofile' },
+      // { path: '/mainprofile', label: 'Main Profile', icon: <DashboardOutlinedIcon />, name: 'mainprofile' },
       { path: '/ProfilePage', label: ' User Profile', icon: <ContactsOutlinedIcon />, name: 'profilePage' },
       { path: '/ProfileLists', label: 'List', icon: <SupervisorAccountOutlinedIcon />, name: 'profileLists' },
       { path: '/SignUp', label: 'Reports', icon: <BarChartIcon />, name: 'signUp' },

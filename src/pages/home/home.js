@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -10,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -33,6 +34,11 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import CustomList from '../../compoents/list';
 import InputFileUpload from '../../compoents/uploadFile';
 import MainListItems from '../../compoents/listItems';
+import { Button, Popover } from '@mui/material';
+import UserImg from '../../media/images/user-img.jpg';
+import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
+import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -147,6 +153,21 @@ export default function Home() {
 
   const items = [0, 1, 2, 3];
 
+
+  
+
+  const [popoverOpen, setPopoverOpen] = React.useState(null);
+  const [selectedOption, setSelectedOption] = React.useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setPopoverOpen(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setPopoverOpen(null);
+  };
+
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }} className="bg-dark">
@@ -186,6 +207,44 @@ export default function Home() {
                 <NotificationsOutlinedIcon />
               </Badge>
             </IconButton>
+            <div className='allInfo'>
+              <Button
+                variant="outlined"
+                onClick={handlePopoverOpen}
+                color="primary"
+                className='allinfo-btn p-0 m-0 rounded-circle border-0'
+              >
+                <img className='rounded-circle' width={'40px'} src={UserImg} alt={UserImg} />
+              </Button>
+              <Popover
+                open={Boolean(popoverOpen)}
+                anchorEl={popoverOpen}
+                onClose={handlePopoverClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+              >
+                <Paper className='allinfo-selectOptions'>
+                  <Link to='/mainprofile'>
+                    <div className='allinfo-list'>
+                      <div className='list-options'>
+                        <div className='d-flex'>
+                          <div>
+                            <PortraitOutlinedIcon className="me-2" />
+                          </div>
+                          <div><p className='mb-0 pt-1'>Manage Profile</p></div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </Paper>
+              </Popover>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer className='left-side' variant="permanent" open={open}>

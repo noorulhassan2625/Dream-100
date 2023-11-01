@@ -14,16 +14,16 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
 import VideoCallOutlinedIcon from '@mui/icons-material/VideoCallOutlined';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MainListItems, { mainListItems } from '../../compoents/listItems';
 import Chart from '../../compoents/chart';
 import DLogo from '../../media/images/D-Logo.png';
-import UserImg from '../../media/images/user-img.jpg';
+// import UserImg from '../../media/images/user-img.jpg';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -45,6 +45,11 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import SelectScripts from '../../compoents/selectScripts';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import EditSocialList from '../../compoents/socialmediaLinks';
+import { Button, Popover } from '@mui/material';
+import UserImg from '../../media/images/user-img.jpg';
+import Paper from '@mui/material/Paper';
+import { Link } from 'react-router-dom';
+import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -169,6 +174,19 @@ export default function MainProfile() {
       setNoteText('');
     }
   };
+  
+
+  const [popoverOpen, setPopoverOpen] = React.useState(null);
+  const [selectedOption, setSelectedOption] = React.useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setPopoverOpen(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setPopoverOpen(null);
+  };
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -212,6 +230,44 @@ export default function MainProfile() {
                 <NotificationsNoneOutlinedIcon className='mx-1' />
               </Badge>
             </IconButton>
+            <div className='allInfo'>
+              <Button
+                variant="outlined"
+                onClick={handlePopoverOpen}
+                color="primary"
+                className='allinfo-btn p-0 m-0 rounded-circle border-0'
+              >
+                <img className='rounded-circle' width={'40px'} src={UserImg} alt={UserImg} />
+              </Button>
+              <Popover
+                open={Boolean(popoverOpen)}
+                anchorEl={popoverOpen}
+                onClose={handlePopoverClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+              >
+                <Paper className='allinfo-selectOptions'>
+                  <Link to='/mainprofile'>
+                    <div className='allinfo-list'>
+                      <div className='list-options'>
+                        <div className='d-flex'>
+                          <div>
+                            <PortraitOutlinedIcon className="me-2" />
+                          </div>
+                          <div><p className='mb-0 pt-1'>Manage Profile</p></div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </Paper>
+              </Popover>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer className='left-side' variant="permanent" open={open}>
@@ -231,6 +287,7 @@ export default function MainProfile() {
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
+   
           </Toolbar>
           <Divider />
           <List component="nav">

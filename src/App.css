@@ -422,7 +422,10 @@ display: none;
   font-size: 14px;
 }
 .animate-label{
-margin-top: -10px;
+  margin-top: -10px;
+  font-size: 14px !important;
+margin-left: -15px;
+
 }
 .home-select div{
   font-size: 14px !important;
@@ -450,6 +453,9 @@ padding: 5px 10px;
 }
 .basicSelect{
   transform: translate(-10px, 15px);
+}
+.basicSelect label , .script-selecting label{
+  padding-left: 10px;
 }
 .profile-tabs{
 border-bottom: 1px solid #3d3d3d !important;
@@ -547,6 +553,38 @@ font-size: 13px !important;
   margin-left: 0px !important; 
 
 }
+
+.allinfo-selectOptions{
+  background-color: #000000 !important;
+  
+  text-decoration: none !important;
+  border: 1px solid #3d3d3d;
+}
+.allinfo-selectOptions a{
+  text-decoration:  none !important;
+}
+.allinfo-selectOptions .list-options{
+  color: white !important;
+
+}
+.allinfo-selectOptions .list-options:hover {
+color: #ffb900e0 !important;
+}
+
+.allinfo-selectOptions .allinfo-list{
+  border-top: 1px solid #3d3d3d;
+  border-bottom: 1px solid #3d3d3d; 
+}
+.allinfo-selectOptions .allinfo-list .d-flex{
+  padding: 5px;
+}
+.socialList-Link li{
+border-bottom: 1px solid #ffb900e0;
+}
+.socialList-Link li svg{
+font-size: 20px !important;
+}
+
 @media only screen and (min-width: 600px) {
   .css-m9mp0w-MuiToolbar-root {
     min-height: 64px !important;

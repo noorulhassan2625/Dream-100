@@ -39,7 +39,7 @@ export default function EditSocialList() {
 
   return (
     <div>
-      <List sx={{ width: '100%', maxWidth: '100%' }}>
+      <List className='socialList-Link' sx={{ width: '100%', maxWidth: '100%' }}>
         {socialMediaNames.map((name, index) => (
           <ListItem key={name} disableGutters>
             <ListItemText primary={name} />
