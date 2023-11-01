@@ -120,6 +120,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Home() {
+  React.useEffect(() => {
+    toggleDrawer();
+  }, []);
   const [selected, setSelected] = React.useState([]);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {

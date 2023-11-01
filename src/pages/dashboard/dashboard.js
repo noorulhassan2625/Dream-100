@@ -131,7 +131,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function MainProfile() {
-
+  React.useEffect(() => {
+    toggleDrawer();
+  }, []);
 
 
   const [popoverOpen, setPopoverOpen] = React.useState(null);
@@ -382,7 +384,7 @@ export default function MainProfile() {
 
                 </div>
               </div>
-              <div className='col-md-2 pt-5 mt-5 filter-side'>
+              <div className='col-md-2 pt-0 mt-0 pt-lg-4  mt-lg-5 filter-side'>
                 <div className='row pb-3 profile-tabs'>
                   <div className='social-data mb-3 col-md-11'>
                     <div className='rounded-1 px-2 log-btn py-1'>

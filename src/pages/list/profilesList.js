@@ -110,6 +110,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function ProfilesList() {
+  React.useEffect(() => {
+    toggleDrawer();
+  }, []);
   const [selected, setSelected] = React.useState([]); // Track selected items
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
